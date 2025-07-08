@@ -1,0 +1,14 @@
+diff -ur vroom/src/routing/libosrm_wrapper.cpp vroom.MLD/src/routing/libosrm_wrapper.cpp
+--- vroom/src/routing/libosrm_wrapper.cpp	2025-07-07 11:05:07.854457488 +0200
++++ vroom.MLD/src/routing/libosrm_wrapper.cpp	2025-07-07 12:25:40.749111261 +0200
+@@ -28,6 +28,10 @@
+   config.max_alternatives = 1;
+   config.dataset_name = profile;
+ 
++  // AS (BFW) set OSRM algorithm from CH to MLD (CH does not work with libosrm)
++  // see: https://github.com/VROOM-Project/vroom/issues/256
++  config.algorithm = osrm::EngineConfig::Algorithm::MLD;
++
+   return config;
+ }
+ 
