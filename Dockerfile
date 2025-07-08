@@ -4,7 +4,7 @@
 
 FROM debian:trixie-slim AS builder
 
-export DOCKER_DEFAULT_PLATFORM=linux/amd64
+#export DOCKER_DEFAULT_PLATFORM=linux/amd64
 # test: getconf LONG_BIT
 
 # Let the container know that there is no TTY
