@@ -107,13 +107,12 @@ RUN echo "Cloning vroom release/branch ${VROOM_RELEASE}..." && \
     cd .. && \
     install -s bin/vroom /usr/local/bin/
 
-WORKDIR /src/vroom-express
-
 ARG VROOM_EXPRESS_RELEASE=master
 
 RUN echo "Cloning and installing vroom-express release/branch ${VROOM_EXPRESS_RELEASE}..." && \
     git clone --branch $VROOM_EXPRESS_RELEASE --single-branch https://github.com/VROOM-Project/vroom-express.git
 
+WORKDIR /src/vroom-express
 
 RUN apt-get update > /dev/null && \
     apt-get install -y --no-install-recommends \
