@@ -8,7 +8,7 @@ FROM debian:trixie-slim AS builder
 # test: getconf LONG_BIT
 
 # Let the container know that there is no TTY
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 # see: https://github.com/Project-OSRM/osrm-backend-docker/blob/master/build.sh
 
