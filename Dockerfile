@@ -4,7 +4,7 @@
 
 FROM debian:trixie-slim AS builder
 
-#export DOCKER_DEFAULT_PLATFORM=linux/amd64
+# export DOCKER_DEFAULT_PLATFORM=linux/amd64
 #FROM --platform=amd64 debian:trixie-slim AS builder
 # test 32/64-bit: getconf LONG_BIT
 
@@ -187,7 +187,12 @@ ENV    VROOM_LOG=/conf VROOM_ROUTER=libosrm
 
 #HEALTHCHECK --start-period=10s CMD curl --fail -s http://localhost:3000/health || exit 1
 
+# vroom express
 EXPOSE 3000
+
+# inetd (vroom-ch, vroom-mld)
+EXPOSE 30000
+EXPOSE 30001
 
 WORKDIR /data
 
