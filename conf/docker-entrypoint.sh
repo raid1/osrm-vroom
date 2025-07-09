@@ -30,5 +30,12 @@ if ! test -f /conf/access.log; then
   touch /conf/access.log
 fi
 
-cd /src/vroom-express && VROOM_ROUTER=${VROOM_ROUTER} VROOM_LOG=${VROOM_LOG} exec npm start
+#cd /src/vroom-express && VROOM_ROUTER=${VROOM_ROUTER} VROOM_LOG=${VROOM_LOG} exec npm start
 #sleep 20000
+
+
+update-inetd --group VROOM --add '30000\t\tstream\ttcp\tnowait\troot\t/usr/local/bin/vroom-ch --router libosrm'
+update-inetd --group VROOM --add '30001\t\tstream\ttcp\tnowait\troot\t/usr/local/bin/vroom-mld --router libosrm'
+
+# start inetd in foreground
+/usr/sbin/inetd -i
