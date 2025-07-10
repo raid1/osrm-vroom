@@ -136,8 +136,7 @@ RUN apt-get update && \
         liblua5.4-0 \
         libtbb12 \
         osmium-tool \
-        less \
-        vim-nox && \
+        less procps psmisc vim-nox && \
 # Add /usr/local/lib to ldconfig to allow loading libraries from there
     ldconfig /usr/local/lib
 
